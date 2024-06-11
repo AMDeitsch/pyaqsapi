@@ -3,32 +3,6 @@
        (US EPA) Air quality System (AQS) Data Mart API.
    :keywords: pyaqsapi, RAQSAPI, USEPA, ambient air monitoring, AQS, Data Mart
 
-.. note::
-    This software/application was developed by the U.S. Environmental
-    Protection Agency (USEPA). No warranty expressed or implied is made
-    regarding the accuracy or utility of the system, nor shall the act of
-    distribution constitute any such warranty. The USEPA has relinquished
-    control of the information and no longer has responsibility to protect the
-    integrity, confidentiality or availability of the information. any
-    reference to specific commercial products, processes, or services by
-    service mark, trademark, manufacturer, or otherwise, does not constitute or
-    imply their endorsement, recommendation or favoring by the USEPA.
-    The USEPA seal and logo shall not be used in any manner to imply
-    endorsement of any commercial product or activity by the USEPA or the
-    United States Government.
-
-.. warning::
-    US EPA’s AQS Data Mart API V2 is currently in beta phase of development,
-    the API interface has not been finalized. This means that certain
-    functionality of the API may change or be removed without notice. As a
-    result, this package is also currently marked as beta and may also change
-    to reflect any changes made to the Data Mart API or in respect to
-    improvements in the design, functionality, quality and documentation of
-    this package. The authors assume no liability for any problems that may
-    occur as a result of using this package, the Data Mart service, any
-    software, service, hardware, or user accounts that may utilize this
-    package.
-
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg?style=plastic
     :target: https://github.com/psf/black
     :alt: This repository uses black for code formatting
@@ -46,13 +20,43 @@
    :target: https://github.com/USEPA/pyaqsapi/actions/workflows/github-ubuntu.yaml
    :align: center
 
+EPA Disclaimer
+==============
 
-============
+.. note::
+    This software/application was developed by the U.S. Environmental
+    Protection Agency (USEPA). No warranty expressed or implied is made
+    regarding the accuracy or utility of the system, nor shall the act of
+    distribution constitute any such warranty. The USEPA has relinquished
+    control of the information and no longer has responsibility to protect
+    the integrity, confidentiality or availability of the information. Any
+    reference to specific commercial products, processes, or services by
+    service mark, trademark, manufacturer, or otherwise, does not constitute
+    or imply their endorsement, recommendation or favoring by the USEPA. The
+    USEPA seal and logo shall not be used in any manner to imply endorsement
+    of any commercial product or activity by the USEPA or the United States
+    Government.
+
+AQS DataMart Disclaimer
+=======================
+
+.. warning::
+    US EPA’s AQS Data Mart API V2 is currently in beta phase of development,
+    the API interface has not been finalized. This means that certain
+    functionality of the API may change or be removed without notice. As a
+    result, this package is also currently marked as beta and may also change
+    to reflect any changes made to the Data Mart API or in respect to
+    improvements in the design, functionality, quality and documentation of
+    this package. The authors assume no liability for any problems that may
+    occur as a result of using this package, the Data Mart service, any
+    software, service, hardware, or user accounts that may utilize this
+    package.
+
 Introduction
 ============
 The pyaqsapi module for the python 3 programming environment allows a python 3
 programming environment to connect to and retrieve data from the United States
-Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data Mart
+Environmental Protection Agency\’s (US EPA) Air Quality System (AQS) Data Mart
 API v2 (Air Quality System)1 interface directly. This package enables the data
 user to omit legacy challenges including coercing data from a JSON object to a
 usable python 3 object, retrieving multiple years of data, formatting API
@@ -64,31 +68,40 @@ Protocol (HTTP) so there is no need to install external ODBC drivers, configure
 ODBC connections or deal with the security vulnerabilities associated with
 them. Most functions have a parameter, return_header which by default is set
 to FALSE. If the user decides to set return_header to TRUE, then that function
-will return a python 3 AQS_DATAMART_APIv2 object. An AQS_DATAMART_APIv2 object
+will return a python 3 AQSAPI_V2 object. An AQSAPI_V2 object
 has instance methods for retrieving the data requested, header information,
 and other metadata related to the API call. After each call to the API a five
 second stall is invoked to help prevent overloading the Data Mart API server
 and to serve as a simple rate limit.
 
-RAQSAPI
-=======
+About the timeliness of AQS Data
+================================
+
+EPA's AQS Datamart API, the service that pyaqsapi retrieves data from, does not
+host real time (collected now/today) data. If real time data is needed, please
+use the AirNow API and direct all questions toward real time data there. RAQSAPI
+does not work with AirNow and cannot retrieve real time data. For more details
+see section 7.1 of the About AQS Data page.
+
+About RAQSAPI
+=============
 pyaqsapi is a port of `RAQSAPI <https://github.com/USEpa/RAQSAPI>`_ to the
 python 3 programming environment. For anyone that is familiar with RAQSAPI, 
 the pyaqsapi API will feel familiar to you, most of the functions are similar 
 and the parameters sent to each functions are the same. pyaqsapi aims to have 
 feature parity with RAQSAPI and neither project will have features that the
-other project doesn't - other than programming language environment or language
-preference there is no benefit to using one package over the other.
+other project does not - other than programming language environment or
+language preference there is no benefit to using one package over the other.
 
 Install pyaqsapi
-----------------
+================
 To install pyaqsapi first clone the pyaqsapi repository.
 
 .. code-block:: console
 
    git clone https://github.com/USEPA/pyaqsapi.git
 
-Next, in the project's root directory use pip to install the proper
+Next, in the project\'s root directory use pip to install the proper
 dependencies that are required to build
 and install pyaqsapi.
 
@@ -96,7 +109,7 @@ and install pyaqsapi.
 
     pip install -r requirements.txt
 
-While still in the project's root directory use setuptools to build and pip
+While still in the project\'s root directory use setuptools to build and pip
 to install the package.
 
 .. code-block:: console
@@ -128,9 +141,9 @@ Use the get_data() class method to retrieve the data, get_header() class
 method to retrieve header information.
 
 Sign up and setting up user credentials with the pyaqsapi library
-================================================================
+=================================================================
 If you have not already done so you will need to sign up with AQS Data Mart
-using aqs_sign_up function,[2] this function takes one input, “email,” which
+using aqs_sign_up function, this function takes one input, “email,” which
 is a python 3 character object, that represents the email address that you want
 to use as a user credential to the AQS Data Mart service. After a successful
 call to aqs_sign_up an email message will be sent to the email address provided
@@ -152,10 +165,10 @@ authentication but only account monitoring. Each time pyaqsapi is loaded and
 before using any of it’s functions use the aqs_credentials function to enter in
 the user credentials so that pyaqsapi can access the AQS Data Mart server.
 
-Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency's Air
+Both pyaqsapi and RAQSAPI use the US Environmental Protection Agency\'s Air
 Quality Service DataMart to retrieve data. The same credentials can be used for 
 access to either project. Note however, that AQS and AQS DataMart are similar
-and related datasources, however the credentials used to access AQS are not the
+and related data sources, however the credentials used to access AQS are not the
 same as those used to access AQS DataMart.
 
 .. note::
@@ -165,8 +178,16 @@ same as those used to access AQS DataMart.
     same credentials used in RAQSAPI in pyaqsapi since RAQSAPI ewes the the same
     AQS Data Mart API as pyaqsapi.
 
+
 Data Mart aggregate functions
------------------------------
+=============================
+.. note::
+    AQS Data Mart API restricts the maximum amount of monitoring data to one
+    full year of data per API call. These functions are able to return multiple
+    years of data by making repeated calls to the API. Each call to the Data
+    Mart API will take time to complete. The more years of data being requested
+    the longer pyaqsapi will take to return the results.
+
 These functions retrieve aggregated data from the Data Mart API and are grouped
 by how each function aggregates the data. There are 7 different families of
 related aggregate functions in which the AQS Data Mart API groups data.
@@ -203,23 +224,17 @@ These thirteen services are:
     - \ Transaction Sample - AQS Submission data in transaction Format (RD)
       (\*transactionsample)
     - \ Quality Assurance - Annual Performance Evaluations
-      (\*qa_annualPeferomanceeval)
-    - \ Quality Assurance - Annual Performance Evaluations in the AQS
       (\*qa_annualpeferomanceeval)
-    - \ Submission transaction format (RD)
-      (\*qa_annualpeferomanceevaltransaction)
-
-.. note::
-    AQS Data Mart API restricts the maximum amount of monitoring data to one
-    full year of data per API call. These functions are able to return multiple
-    years of data by making repeated calls to the API. Each call to the Data
-    Mart API will take time to complete. The more years of data being requested
-    the longer RAQSAPI will take to return the results.
-    
-Read the full 
-`API documentation <https://usepa.github.io/pyaqsapi/>`_ online.
+    - \ Quality Assurance - Annual Performance Evaluations in the AQS
+      \ Submission transaction format (RD)
+      \ (\*qa_annualpeferomanceevaltransaction)
 
 
 Aggregate functions are named aqs.<aggregation>.<service>() where <service>
 is one of the 13 services listed above and <aggregation> is either
 "bysite“, ”bycounty“, ”bystate“, ”bybox“, ”bycbsa", "byma" or "bypqao".
+
+    
+Read the full 
+`API documentation <https://usepa.github.io/pyaqsapi/>`_ online.
+

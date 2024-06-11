@@ -1,19 +1,40 @@
-.. pyaqsapi documentation master file, created by
-   sphinx-quickstart on Mon Oct  4 14:40:23 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. sectionauthor:: Clinton Mccrowey \<mccrowey \<DOT\>\ clinton \<AT\>\ epa.gov\>
 
-Welcome to pyaqsapi's documentation!
-====================================
+===========================
+pyaqsapi user documentation
+===========================
+
 .. toctree::
-  :maxdepth: 2
+   :maxdepth: 2
+   :numbered:
+   :hidden:
 
-  pyaqsapi
-.. add some text
+.. include:: manual/EPA_Disclaimer.rst
+.. include:: manual/Introduction.rst
+.. include:: manual/TimelinessofAQSdata.rst
+.. include:: manual/Install_pyaqsapi.rst
+.. include:: manual/Load_pyaqsapi.rst
+.. include:: manual/Using_pyaqsapi.rst
+.. include:: manual/pyaqsapiusagetipsandprecautions.rst
+.. include:: manual/pyaqsapiFunctions-Long.rst
+.. include:: manual/Troubleshooting.rst
+.. include:: manual/RAQSAPI.rst
 
-Indices and tables
-==================
+
+pyaqsapi API reference documentation
+------------------------------------
+
+* :ref:`modindex`
+
+
+pyaqsapi index
+--------------
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+References
+----------
+.. bibliography::
+   :style: plain
+   :list: enumerated
+   :filter: docname in docnames

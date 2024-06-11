@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyaqsapi.bystate package &mdash; pyaqsapi  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -40,10 +42,32 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="pyaqsapi.html">pyaqsapi package</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyaqsapi.bystate package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyaqsapi.bystate.bystate">pyaqsapi.bystate.bystate module</a><ul>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.annualsummary"><code class="docutils literal notranslate"><span class="pre">annualsummary()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.dailysummary"><code class="docutils literal notranslate"><span class="pre">dailysummary()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.monitors"><code class="docutils literal notranslate"><span class="pre">monitors()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_annualperformanceeval"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceeval()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_annualperformanceevaltransaction"><code class="docutils literal notranslate"><span class="pre">qa_annualperformanceevaltransaction()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_blanks"><code class="docutils literal notranslate"><span class="pre">qa_blanks()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_collocated_assessments"><code class="docutils literal notranslate"><span class="pre">qa_collocated_assessments()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_flowrateaudit"><code class="docutils literal notranslate"><span class="pre">qa_flowrateaudit()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_flowrateverification"><code class="docutils literal notranslate"><span class="pre">qa_flowrateverification()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_one_point_qc"><code class="docutils literal notranslate"><span class="pre">qa_one_point_qc()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.qa_pep_audit"><code class="docutils literal notranslate"><span class="pre">qa_pep_audit()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.quarterlysummary"><code class="docutils literal notranslate"><span class="pre">quarterlysummary()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.sampledata"><code class="docutils literal notranslate"><span class="pre">sampledata()</span></code></a></li>
+<li><a class="reference internal" href="#pyaqsapi.bystate.bystate.transactionsample"><code class="docutils literal notranslate"><span class="pre">transactionsample()</span></code></a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#module-pyaqsapi.bystate">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
@@ -97,12 +121,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -119,6 +143,18 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame with all benzene samples from
+North Carolina collected from May 15th, 1995 - May 15, 1999:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">annualsummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;45201&quot;</span><span class="p">,</span>
+                          <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                          <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1999</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                          <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -142,12 +178,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -164,6 +200,18 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of all benzene daily
+summaries from North Carolina collected on May 15th, 1995:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">dailysummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;45201&quot;</span><span class="p">,</span>
+                         <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                         <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                         <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -186,12 +234,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -206,6 +254,17 @@ to None.</p>
 <dt>(pandas DataFrame or an AQSAPI_V2 object): monitors from the</dt><dd><p>selected state.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of SO2 monitors in Hawaii that were operating on
+May 01, 2017.</p>
+<p>import pyaqsapi as aqs
+from datetime import date</p>
+<dl class="simple">
+<dt>aqs.bystate.monitors(parameter=”88101”,</dt><dd><p>bdate=date(year=2017, month=1, day=1),
+edate=date(year=2017, month=12, day=31),
+stateFIPS=”01”)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -230,12 +289,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -254,6 +313,22 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame containing annual performance evaluation
+data for ozone in Alabama for 2017:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_annualperformanceeval</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
+                                     <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+                                                <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                                     <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+                                                <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                                                <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                                     <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -278,12 +353,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -302,6 +377,22 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame containing annual performance evaluation data
+for ozone in Alabama for 2017 in RD format.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_annualperformanceevaltransaction</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
+                                                <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+                                                           <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                           <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                                                <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+                                                           <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                                                           <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                                                <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -326,12 +417,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -348,6 +439,18 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame which contains PM2.5 blank data
+for Alabama for January 2018:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_blanks</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;45201&quot;</span><span class="p">,</span>
+                      <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                      <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1999</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                      <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -369,12 +472,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -391,6 +494,22 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of collocated
+assessment data for FRM2.5 for January 2013:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_collocated_assessments</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
+                                      <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span>
+                                                 <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                 <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                                      <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span>
+                                                 <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                 <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                                      <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -413,12 +532,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -435,6 +554,22 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of flow rate audit
+data for Alabama in January 2018:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_flowrateaudit</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
+                             <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
+                                        <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                        <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                             <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span>
+                                        <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                        <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                             <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -457,12 +592,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -479,6 +614,22 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of flow rate verification data for the state of
+Alabama for 2017-2019:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_flowrateverification</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
+                                    <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+                                               <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                               <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                                    <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">,</span>
+                                               <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                                               <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                                    <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -501,12 +652,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -523,6 +674,18 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of one point QC check
+data for ozone in Massachusetts in January 2018:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_one_point_qc</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;44201&quot;</span><span class="p">,</span>
+                            <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                            <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                            <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;25&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -545,12 +708,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -567,6 +730,17 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame of PEP audit data for PM2.5 in Alabama 2017:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">qa_pep_audit</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
+                         <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                         <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                         <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -590,12 +764,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -613,6 +787,36 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p>The AQS API only allows for a single year of quarterly summary to be
+retrieved at a time. This function conveniently extracts date
+information from the bdate and edate parameters then makes repeated
+calls to the AQSAPI retrieving a maximum of one calendar year of data
+at a time. Each calendar year of data requires a separate API call so
+multiple years of data will require multiple API calls. As the number
+of years of data being requested increases so does the length of time
+that it will take to retrieve results. There is also a 5 second wait
+time inserted between successive API calls to prevent overloading the
+API server. This operation has a linear run time of
+/(Big O notation: O/(n + 5 seconds/)/).</p>
+<p>Also Note that for quarterly data, only the year portion of the bdate
+and edate are used and all 4 quarters in the year are returned.</p>
+<p class="rubric">Examples</p>
+<p>Return an aqs S3 object containing quarterly summaries for
+FRM/FEM PM2.5 data for North Carolina for each quarter of  2016-2017:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">quarterlysummary</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;88101&quot;</span><span class="p">,</span>
+                             <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+                                        <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                        <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                             <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2017</span><span class="p">,</span>
+                                        <span class="n">month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                                        <span class="n">day</span><span class="o">=</span><span class="mi">31</span><span class="p">),</span>
+                             <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -633,12 +837,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -664,6 +868,18 @@ duration codes.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame with all benzene samples from
+North Carolina collected from May 15th, 1995 - May 15, 1999:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">sampledata</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;45201&quot;</span><span class="p">,</span>
+                       <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                       <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                       <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -687,12 +903,12 @@ pollutant related to the data being requested.</p>
 requested. Use aqs_states() for the list of available
 FIPS codes.</p>
 </dd>
-<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a &quot;beginning date of</span></dt><dd><p>last change&quot; that indicates when the data was last updated.
+<dt><strong>cbdate</strong><span class="classifier">a python date object which represents a “beginning date of</span></dt><dd><p>last change” that indicates when the data was last updated.
 cbdate is used to filter data based on the change date.
 Only data that changed on or after this date will be returned.
 This is an optional variable which defaults to None.</p>
 </dd>
-<dt><strong>cedate</strong><span class="classifier">a python date object which represents an &quot;end date of last</span></dt><dd><p>change&quot; that indicates when the data was last updated.
+<dt><strong>cedate</strong><span class="classifier">a python date object which represents an “end date of last</span></dt><dd><p>change” that indicates when the data was last updated.
 cedate is used to filter data based on the change date.
 Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -710,6 +926,22 @@ to None.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Return a DataFrame containing benzene transaction sample data for
+North Carolina on May 15, 1995:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyaqsapi</span> <span class="k">as</span> <span class="nn">aqs</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="o">...</span>
+<span class="n">aqs</span><span class="o">.</span><span class="n">bystate</span><span class="o">.</span><span class="n">transactionsample</span><span class="p">(</span><span class="n">parameter</span><span class="o">=</span><span class="s2">&quot;45201&quot;</span><span class="p">,</span>
+                              <span class="n">bdate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span>
+                                         <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                         <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                              <span class="n">edate</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">1995</span><span class="p">,</span>
+                                         <span class="n">month</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                                         <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+                              <span class="n">stateFIPS</span><span class="o">=</span><span class="s2">&quot;37&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -726,7 +958,7 @@ to None.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, US Environmental Protection Agency.</p>
+    <p>&#169; Copyright 2024, US Environmental Protection Agency.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

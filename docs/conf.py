@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information ------------------------------------------------------
 
 project = "pyaqsapi"
-copyright = "2023, US Environmental Protection Agency"
+copyright = "2024, US Environmental Protection Agency"
 author = "Clinton Mccrowey (US Environmental Protection Agency)"
 
 
@@ -35,10 +35,15 @@ extensions = [
     "sphinxcontrib.spelling",
     "numpydoc",
     "sphinx.ext.napoleon",
+    "sphinxcontrib.bibtex",
+    "sphinx.ext.autosectionlabel",
 ]
 
+# sphinxcontrib.bibtex bibtext file location
+bibtex_bibfiles = ["manual/pyaqsapi.bib"]
+
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
+# templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -48,10 +53,12 @@ exclude_patterns = [
     "Thumbs.db",
     ".DS_Store",
     "setup.py",
-    "*modules.rst",
-    "*setup.rst",
+    "*setup.rst"
 ]
 
+# get rid of those duplicate label warnings when embedding a child rst file
+# into another rst file.
+suppress_warnings = ["autosectionlabel.*"]
 
 # -- Options for HTML output --------------------------------------------------
 
@@ -65,6 +72,11 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
+# -- Options for sphinxcontrib.bibtex -----------------------------------------
+bibtex_reference_style = "label"
+bibtex_default_style = "plain"
+bibtex_tooltips = True
+
 # -- Options for Napolean output ---------------------------------------------
 napolean_include_private_with_doc = False
 napolean_include_special_with_doc = False
@@ -73,7 +85,7 @@ napolean_use_param = True
 napolean_use_rtype = True
 napolean_reprocess_types = True
 napoleon_google_docstring = True
-napoleon_numpy_docstring = True
+# napoleon_numpy_docstring = True
 
 # -- Options for sphinxcontrib-spelling ---------------------------------------
 spelling_lang = "en_US"
@@ -83,7 +95,7 @@ spelling_show_suggestions = True
 spelling_show_whole_line = True
 spelling_warning = True
 spelling_verbose = True
-spelling_ignore_pypi_package_names = False
+spelling_ignore_pypi_package_names = True
 spelling_ignore_python_builtins = True
 spelling_ignore_contributor_names = True
 
