@@ -92,3 +92,10 @@ pyaqsapi.setupfunctions module
    :undoc-members:
    :show-inheritance:
 
+pyaqsapi.textvariables module
+------------------------------
+
+.. automodule:: pyaqsapi.textvariables
+   :members:
+   :undoc-members:
+   :show-inheritance:
